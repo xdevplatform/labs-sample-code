@@ -1,6 +1,6 @@
 # Twitter Labs Sample Code
 
-Sample code for Twitter Developer Labs
+Sample code for Twitter Developer Labs.
 
 ## Getting Started
 
