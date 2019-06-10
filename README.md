@@ -20,8 +20,6 @@ in all interactions with the community.
 
 ## Authors
 
-* Jessica Garson <jgarson@twitter.com>
-
 A full list of [contributors](https://github.com/Twitter-Labs-Sample-Code/graphs/contributors?type=a) can be found on GitHub.
 
 Follow [@TwitterDev](https://twitter.com/TwitterDev) on Twitter for updates.
