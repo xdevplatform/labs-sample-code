@@ -1,11 +1,11 @@
 # Twitter Labs Sample Code
 
-Sample code for Twitter Developer Labs.
+Sample code for Twitter Developer Labs. Each preview has a folder where you can find sample code for the preview.
 
 ## Getting Started
 
- * Website: https://developer.twitter.com/en/labs.html 
- * Documentation: https://developer.twitter.com/en/docs/labs/overview/introduction 
+ * Website: https://developer.twitter.com/en/labs.html
+ * Documentation: https://developer.twitter.com/en/docs/labs/overview/introduction
 
 
 ## Support
@@ -29,3 +29,6 @@ Follow [@TwitterDev](https://twitter.com/TwitterDev) on Twitter for updates.
 Copyright 2019 Twitter, Inc.
 
 Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0
+
+## Security Issues?
+Please report sensitive security issues via Twitter's bug-bounty program (https://hackerone.com/twitter) rather than GitHub.

@@ -6,7 +6,7 @@ This repository contains two sample applications inspired by Python the sample c
 `get_users_sample.py` allows you to enter in a tweet id and it will tell you how many likes and retweets a tweet had.
 
 ## Setting the environment variables
-For this code to run you will need to set up the environment variables, you will need to add the following in your terminal.
+For this code to run you will need to set up the environment variables, you will need to add the following in your terminal:
 
 ```bash
 export 'CONSUMER_KEY'='xxxxxxxxxxxxxxxxxxx'
