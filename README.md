@@ -1,4 +1,4 @@
-# Twitter Labs Sample Code
+# Twitter Developer Labs Sample Code
 
 Sample code for Twitter Developer Labs. Each available preview has a folder where you can find sample code.
 
