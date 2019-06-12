@@ -10,7 +10,7 @@ Sample code for Twitter Developer Labs. Each available preview has a folder wher
 
 ## Support
 
-Create a [new issue](https://github.com/Twitter-Labs-Sample-Code/issues/new) on GitHub.
+Create a [new issue](https://github.com/twitterdev/labs-sample-code/issues) on GitHub.
 
 ## Contributing
 
