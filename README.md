@@ -4,9 +4,8 @@ Sample code for Twitter Developer Labs. Each available preview has a folder wher
 
 ## Getting Started
 
- * Website: https://developer.twitter.com/en/labs.html
- * Documentation: https://developer.twitter.com/en/docs/labs/overview/introduction
-
+* Website: https://developer.twitter.com/en/labs.html
+* Documentation: https://developer.twitter.com/en/docs/labs/overview/introduction
 
 ## Support
 
@@ -17,7 +16,6 @@ Create a [new issue](https://github.com/twitterdev/labs-sample-code/issues) on G
 We feel that a welcoming community is important and we ask that you follow Twitter's
 [Open Source Code of Conduct](https://github.com/twitter/code-of-conduct/blob/master/code-of-conduct.md)
 in all interactions with the community.
-
 
 ## License
 

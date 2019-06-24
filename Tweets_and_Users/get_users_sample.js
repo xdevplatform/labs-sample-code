@@ -9,8 +9,8 @@ const util = require('util');
 const get = util.promisify(request.get);
 const post = util.promisify(request.post);
 
-const consumer_key = ''; // Add your API key here
-const consumer_secret = ''; // Add your API secret key here
+const consumer_key = process.env.CONSUMER_KEY || ''; // Add your API key if not set in environment variable
+const consumer_secret = process.env.CONSUMER_SECRET || ''; // Add your API secret key if not set in environment variable
 
 const requestTokenURL = new URL('https://api.twitter.com/oauth/request_token');
 const accessTokenURL = new URL('https://api.twitter.com/oauth/access_token');
@@ -25,16 +25,22 @@ async function input(prompt) {
   });
 }
 
-async function accessToken({oauth_token, oauth_token_secret}, verifier) {
+async function accessToken({
+  oauth_token,
+  oauth_token_secret
+}, verifier) {
   const oAuthConfig = {
     consumer_key: consumer_key,
     consumer_secret: consumer_secret,
     token: oauth_token,
     token_secret: oauth_token_secret,
     verifier: verifier,
-  }; 
-  
-  const req = await post({url: accessTokenURL, oauth: oAuthConfig});
+  };
+
+  const req = await post({
+    url: accessTokenURL,
+    oauth: oAuthConfig
+  });
   if (req.body) {
     return qs.parse(req.body);
   } else {
@@ -49,7 +55,10 @@ async function requestToken() {
     consumer_secret: consumer_secret,
   };
 
-  const req = await post({url: requestTokenURL, oauth: oAuthConfig});
+  const req = await post({
+    url: requestTokenURL,
+    oauth: oAuthConfig
+  });
   if (req.body) {
     return qs.parse(req.body);
   } else {
@@ -57,7 +66,10 @@ async function requestToken() {
   }
 }
 
-async function getRequest({oauth_token, oauth_token_secret}, params) {
+async function getRequest({
+  oauth_token,
+  oauth_token_secret
+}, params) {
   const oAuthConfig = {
     consumer_key: consumer_key,
     consumer_secret: consumer_secret,
@@ -65,7 +77,12 @@ async function getRequest({oauth_token, oauth_token_secret}, params) {
     token_secret: oauth_token_secret,
   };
 
-  const req = await get({url: endpointURL, oauth: oAuthConfig, qs: params, json: true});
+  const req = await get({
+    url: endpointURL,
+    oauth: oAuthConfig,
+    qs: params,
+    json: true
+  });
   if (req.body) {
     return req.body;
   } else {
@@ -78,22 +95,27 @@ async function getRequest({oauth_token, oauth_token_secret}, params) {
 
     // Get request token
     const oAuthRequestToken = await requestToken();
-    
+
     // Get authorization
     authorizeURL.searchParams.append('oauth_token', oAuthRequestToken.oauth_token);
     console.log('Please go here and authorize:', authorizeURL.href);
     const pin = await input('Paste the PIN here: ');
-    
+
     // Get the access token
     const oAuthAccessToken = await accessToken(oAuthRequestToken, pin.trim());
 
     const username = await input('What username do you want to look up? ');
-    const params = { usernames: username };
+    const params = {
+      usernames: username
+    };
 
     // Make the request
     const response = await getRequest(oAuthAccessToken, params);
-    console.log(response);
-  } catch(e) {
+    console.log("Bio: ");
+    console.log(response.data[0].description);
+    console.log("Location: ");
+    console.log(response.data[0].location);
+  } catch (e) {
     console.error(e);
     process.exit(-1);
   }

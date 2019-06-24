@@ -41,7 +41,7 @@ oauth = OAuth1Session(
     resource_owner_secret=access_token_secret,
 )
 
-tweet_id = input("What's the id of a tweet you are looking for?\n")
+tweet_id = input("What Tweet ID do you want to look up? \n")
 params = {"ids": tweet_id, "format": "detailed"}
 
 response = oauth.get("https://api.twitter.com/labs/1/tweets", params=params)

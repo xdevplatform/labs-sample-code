@@ -1,4 +1,3 @@
-import os
 from requests_oauthlib import OAuth1Session
 
 consumer_key = ''  # Add your API key here
@@ -23,10 +22,10 @@ verifier = input('Paste the PIN here: ')
 # # Get the access token
 access_token_url = 'https://api.twitter.com/oauth/access_token'
 oauth = OAuth1Session(consumer_key,
-                     client_secret=consumer_secret,
-                     resource_owner_key=resource_owner_key,
-                     resource_owner_secret=resource_owner_secret,
-                     verifier=verifier)
+                      client_secret=consumer_secret,
+                      resource_owner_key=resource_owner_key,
+                      resource_owner_secret=resource_owner_secret,
+                      verifier=verifier)
 oauth_tokens = oauth.fetch_access_token(access_token_url)
 
 access_token = oauth_tokens['oauth_token']
@@ -34,9 +33,9 @@ access_token_secret = oauth_tokens['oauth_token_secret']
 
 # Make the request
 oauth = OAuth1Session(consumer_key,
-                       client_secret=consumer_secret,
-                       resource_owner_key=access_token,
-                       resource_owner_secret=access_token_secret)
-response = oauth.get("https://api.twitter.com/labs/1/users", params = params)
+                      client_secret=consumer_secret,
+                      resource_owner_key=access_token,
+                      resource_owner_secret=access_token_secret)
+response = oauth.get("https://api.twitter.com/labs/1/users", params=params)
 print("Response status: %s" % response.status_code)
 print("Body: %s" % response.text)

@@ -47,7 +47,7 @@ params = {"usernames": "{}".format(handle)}
 
 response = oauth.get("https://api.twitter.com/labs/1/users", params=params)
 
-# Turn respons into JSON
+# Turn response into JSON
 if response.encoding is None:
     response.encoding = "utf-8"
 for data in response.iter_lines(decode_unicode=True):
