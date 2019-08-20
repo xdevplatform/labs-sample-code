@@ -1,5 +1,7 @@
 require 'oauth'
 require 'yaml'
+require 'typhoeus'
+require 'oauth/request_proxy/typhoeus_request'
 
 @consumer_key = # Add your API key here
 @consumer_secret = # Add your API secret key here
@@ -7,7 +9,7 @@ require 'yaml'
 @consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret,
                                 :site => 'https://api.twitter.com',
                                 :authorize_path => '/oauth/authenticate',
-                                :debug_output => false)                                
+                                :debug_output => false)
 
 @request_token = @consumer.get_request_token()
 
@@ -20,9 +22,6 @@ puts "Enter PIN: "
 @hash = { :oauth_token => @token, :oauth_token_secret => @token_secret}
 @request_token  = OAuth::RequestToken.from_hash(@consumer, @hash)
 @access_token = @request_token.get_access_token({:oauth_verifier => @pin})
-
-require 'typhoeus'
-require 'oauth/request_proxy/typhoeus_request'
 
 puts "Looking up users with new access token"
 

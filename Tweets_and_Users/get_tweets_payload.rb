@@ -1,5 +1,7 @@
 require 'oauth'
 require 'yaml'
+require 'typhoeus'
+require 'oauth/request_proxy/typhoeus_request'
 
 @consumer_key = # Add your API key here
 @consumer_secret = # Add your API secret key here
@@ -7,7 +9,7 @@ require 'yaml'
 @consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret,
                                 :site => 'https://api.twitter.com',
                                 :authorize_path => '/oauth/authenticate',
-                                :debug_output => false)                                
+                                :debug_output => false)
 
 @request_token = @consumer.get_request_token()
 
@@ -21,15 +23,9 @@ puts "Enter PIN: "
 @request_token  = OAuth::RequestToken.from_hash(@consumer, @hash)
 @access_token = @request_token.get_access_token({:oauth_verifier => @pin})
 
-require 'typhoeus'
-require 'oauth/request_proxy/typhoeus_request'
-
 @uri = "https://api.twitter.com/labs/1/tweets?ids=1067094924124872705&format=detailed"
 @options = {
-    :method => :get,
-    :headers => { 
-        "x-des-apiservices" => "staging2"
-     }
+    :method => :get
 }
 
 @oauth_params = {:consumer => @consumer, :token => @access_token}
