@@ -1,10 +1,13 @@
 from requests_oauthlib import OAuth1Session
-import os
 import json
 
-# Auth
-consumer_key = os.environ.get("CONSUMER_KEY")
-consumer_secret = os.environ.get("CONSUMER_SECRET")
+# Authentication
+
+# Add your API key here
+consumer_key = '' 
+
+# Add your API secret key here
+consumer_secret = ''
 
 request_token_url = "https://api.twitter.com/oauth/request_token"
 oauth = OAuth1Session(consumer_key, client_secret=consumer_secret)

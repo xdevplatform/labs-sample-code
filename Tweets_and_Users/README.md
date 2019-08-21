@@ -4,11 +4,6 @@ This repository contains two sample applications inspired by the [quick start gu
 
 We also have the code from the [quick start guides](https://developer.twitter.com/en/docs/labs/tweets-and-users/quick-starts) available. `get_users_payload.js`, `get_users_payload.py` and `get_users_payload.rb` allow you to get a sample payload in JavaScript, Python and Ruby for the GET /users endpoint. `get_tweets_payload.js`, `get_tweets_payload.py` and `get_tweets_payload.rb` allow you to use the GET /tweets endpoint.
 
-## Setting the environment variables
+## Authentication
 
-For the code to run for `get_users_sample.py` and `get_tweets_sample.py` you will need to set up the environment variables. Add the following via your terminal:
-
-```bash
-export 'CONSUMER_KEY'='xxxxxxxxxxxxxxxxxxx'
-export 'CONSUMER_SECRET'='xxxxxxxxxxxxxxxxxxxxxxx'
-```
+In order to successfully run the scripts, you must add your Twitter application credentials at the top of each file, where indicated.

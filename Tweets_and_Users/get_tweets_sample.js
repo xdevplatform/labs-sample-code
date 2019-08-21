@@ -9,8 +9,8 @@ const util = require('util');
 const get = util.promisify(request.get);
 const post = util.promisify(request.post);
 
-const consumer_key = process.env.CONSUMER_KEY || ''; // Add your API key if not set in environment variable
-const consumer_secret = process.env.CONSUMER_SECRET || ''; // Add your API secret key if not set in environment variable
+const consumer_key = ''; // Add your API key if not set in environment variable
+const consumer_secret = ''; // Add your API secret key if not set in environment variable
 
 const requestTokenURL = new URL('https://api.twitter.com/oauth/request_token');
 const accessTokenURL = new URL('https://api.twitter.com/oauth/access_token');
