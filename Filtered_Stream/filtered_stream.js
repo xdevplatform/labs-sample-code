@@ -106,7 +106,12 @@ function streamConnect(token) {
   const stream = request.get(config);
 
   stream.on('data', data => {
-      console.log(JSON.parse(data));
+    try {
+      const json = JSON.parse(data);
+      console.log(json);
+    } catch (e) {
+      // Keep alive signal received. Do nothing.
+    }
   }).on('error', error => {
     if (error.code === 'ETIMEDOUT') {
       stream.emit('timeout');
