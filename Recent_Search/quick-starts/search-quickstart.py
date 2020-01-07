@@ -9,7 +9,7 @@ CONSUMER_SECRET = ''
 
 query = urllib.parse.quote("(Labs Search Twitter) OR from:TwitterDev OR from:SnowBotDev OR from:DailyNASA")
 
-url = f"https://api.twitter.com/labs/1/tweets/search/recent?query={query}"
+url = f"https://api.twitter.com/labs/1/tweets/search?query={query}"
 
 headers = {
     "Accept-Encoding": "gzip"
@@ -31,7 +31,7 @@ class BearerTokenAuth(AuthBase):
             headers={'User-Agent': 'LabsRecentSearchQuickStartPython'})
 
         if response.status_code is not 200:
-            raise Exception(f"Cannot get a Bearer token (HTTP %d): %s" % (response.status_code, response.text))
+            raise Exception("Cannot get a Bearer token (HTTP %d): %s" % (response.status_code, response.text))
 
         body = response.json()
         return body['access_token']
