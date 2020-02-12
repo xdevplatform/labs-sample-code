@@ -58,14 +58,14 @@ async function bearerToken (auth) {
 
   try {
     const res = await get(requestConfig);  
-    console.log(res.statusCode);
-    console.log(res);
+    //console.log(res.statusCode);
+    console.log(res.body);
     if (res.statusCode !== 200) {
       throw new Error(res.json);
       return;
     }
 
-    console.log(res.json);
+    //console.log(res.json);
   } catch (e) {
     console.error(`Could not get search results. An error occurred: ${e}`);
     process.exit(-1);
