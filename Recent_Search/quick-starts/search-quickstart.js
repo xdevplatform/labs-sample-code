@@ -44,8 +44,7 @@ async function bearerToken (auth) {
     url: searchURL,
     qs: {
       query: query,
-      max_results: maxResults,
-      format: 'compact',
+      max_results: maxResults
     },
     auth: {
       bearer: token,
