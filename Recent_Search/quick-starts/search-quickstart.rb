@@ -10,7 +10,7 @@ CONSUMER_SECRET = "" # Add your API secret key here
 @search_url = "https://api.twitter.com/labs/1/tweets/search"
 query = '(Labs Search Twitter) OR from:TwitterDev OR from:SnowBotDev OR from:DailyNASA'
 
-options = {"query" => query, "format" => 'compact'}
+options = {"query" => query}
 
 def bearer_token(consumer_key, consumer_secret)
 # Generates a Bearer Token using your Twitter App's consumer key and secret.
