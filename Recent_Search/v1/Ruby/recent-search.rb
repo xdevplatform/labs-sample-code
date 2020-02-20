@@ -16,8 +16,7 @@ def make_request(bearer_token, query)
   options = {}
   options['query'] = query
   options['max_results'] = 10
-  options['format'] = 'compact'
-
+ 
   uri.query = URI.encode_www_form(options)
 
   http = Net::HTTP.new(uri.host, uri.port)
