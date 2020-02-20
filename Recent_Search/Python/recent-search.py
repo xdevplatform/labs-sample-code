@@ -13,7 +13,7 @@ BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
 SEARCH_URL = "https://api.twitter.com/labs/1/tweets/search"
 QUERY = "(snow OR hail OR rain) (Colorado OR #COWX) has:images"
 MAX_REQUESTS = 3
-OPTIONS = "&format=compact"
+# OPTIONS = "&format=compact" #Labs v1 only.
 
 def get_tweets(auth, query):
 
