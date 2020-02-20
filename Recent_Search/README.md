@@ -22,17 +22,20 @@ If you are developing in Python or Ruby, the following examples are a bit more a
 
 **/Python
 
-[/Python/recent-search.py](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/Python/recent-search.py)
+[/v2/recent-search.py](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/v2/recent-search.py)
 
 
 **/Ruby
 
-[/Ruby/recent-search.rb ](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/Ruby/recent-search.rb)
+[/v2/recent-search.rb ](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/v2/recent-search.rb)
 
 
 **/JavaScript
 =======
-# Sample code
+[/v2/recent-search.js](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/v2/recent-search.js)
+
+**/Java
+[/v2/recent-search.java](https://github.com/twitterdev/labs-sample-code/blob/master/Recent_Search/v2/recent-search.java)
 
 This repository contains sample applications inspired by the [quick start guides](https://developer.twitter.com/en/docs/labs/recent-search/quick-start). The scripts included in this folder allow you to:
 
