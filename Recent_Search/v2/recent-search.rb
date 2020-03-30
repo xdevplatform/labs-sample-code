@@ -45,7 +45,6 @@ def make_request(key, secret, query)
   options = {}
   options['query'] = query
   options['max_results'] = 10
-  options['format'] = 'compact'
   #options['start_time'] = nil
   #options['end_time'] = nil
 
