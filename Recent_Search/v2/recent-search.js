@@ -11,7 +11,7 @@ const consumer_secret = ''; // Add your API secret key here
 const bearerTokenURL = new URL('https://api.twitter.com/oauth2/token');
 const searchURL = new URL('https://api.twitter.com/labs/2/tweets/search');
 
-async function bearerToken (auth) {
+async function bearerToken(auth) {
   const requestConfig = {
     url: bearerTokenURL,
     auth: {
@@ -34,9 +34,12 @@ async function bearerToken (auth) {
 
   try {
     // Exchange your credentials for a Bearer token
-    token = await bearerToken({consumer_key, consumer_secret});
+    token = await bearerToken({
+      consumer_key,
+      consumer_secret
+    });
   } catch (e) {
-    console.error(`Could not generate a Bearer token. Please check that your credentials are correct and that the Filtered Stream preview is enabled in your Labs dashboard. (${e})`);
+    console.error(`Could not generate a Bearer token. Please check that your credentials are correct and that the Recent Search preview is enabled in your Labs dashboard. (${e})`);
     process.exit(-1);
   }
 
@@ -45,7 +48,6 @@ async function bearerToken (auth) {
     qs: {
       query: query,
       max_results: maxResults,
-      format: 'compact',
     },
     auth: {
       bearer: token,
@@ -57,15 +59,14 @@ async function bearerToken (auth) {
   };
 
   try {
-    const res = await get(requestConfig);  
+    const res = await get(requestConfig);
     console.log(res.statusCode);
-    console.log(res);
+    console.log(JSON.stringify(res.body, null, 2)) // log the full JSON body of the result set
     if (res.statusCode !== 200) {
       throw new Error(res.json);
       return;
     }
 
-    console.log(res.json);
   } catch (e) {
     console.error(`Could not get search results. An error occurred: ${e}`);
     process.exit(-1);
