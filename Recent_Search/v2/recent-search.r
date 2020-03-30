@@ -32,7 +32,8 @@ recent_search_request <-
     (
       .headers = c(
         'Authorization' = sprintf('Bearer %s', access_token),
-        'Content-Type' = 'application/json'
+        'Content-Type' = 'application/json',
+        'User-Agent' = 'LabsRecentSearchQuickStartR'
       )
     )
   )

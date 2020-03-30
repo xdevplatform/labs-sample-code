@@ -28,7 +28,7 @@ def bearer_token(consumer_key, consumer_secret)
   request = Net::HTTP::Post.new(uri.path)
   request.body =  "grant_type=client_credentials"
   request['Authorization'] = "Basic #{credentials}"
-  request['User-Agent'] = "RecentSearchQuickStartRuby"
+  request['User-Agent'] = "LabsRecentSearchQuickStartRuby"
 
   response = http.request(request)
 
@@ -45,7 +45,6 @@ def make_request(key, secret, query)
   options = {}
   options['query'] = query
   options['max_results'] = 10
-  options['format'] = 'compact'
   #options['start_time'] = nil
   #options['end_time'] = nil
 
