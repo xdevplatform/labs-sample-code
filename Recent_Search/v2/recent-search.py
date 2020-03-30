@@ -3,7 +3,7 @@ import urllib.parse
 import requests
 from requests.auth import AuthBase
 
-# Fill these in. Generate tokens at https://developer.twitter.com/en/apps. 
+# Fill these in. Generate tokens at https://developer.twitter.com/en/apps.
 CONSUMER_KEY = ''
 CONSUMER_SECRET = ''
 
@@ -16,6 +16,8 @@ headers = {
 }
 
 # Generates a bearer token with consumer key and secret via https://api.twitter.com/oauth2/token.
+
+
 class BearerTokenAuth(AuthBase):
     def __init__(self, consumer_key, consumer_secret):
         self.bearer_token_url = "https://api.twitter.com/oauth2/token"
@@ -31,28 +33,31 @@ class BearerTokenAuth(AuthBase):
             headers={'User-Agent': 'LabsRecentSearchQuickStartPython'})
 
         if response.status_code is not 200:
-            raise Exception("Cannot get a Bearer token (HTTP %d): %s" % (response.status_code, response.text))
+            raise Exception("Cannot get a Bearer token (HTTP %d): %s" %
+                            (response.status_code, response.text))
 
         body = response.json()
         return body['access_token']
 
     def __call__(self, r):
         r.headers['Authorization'] = f"Bearer %s" % self.bearer_token
-        r.headers['User-Agent'] = 'LabsResearchSearchQuickStartPython'
+        r.headers['User-Agent'] = 'LabsRecentSearchQuickStartPython'
         return r
 
 # Script starts here.
 
-#Create Bearer Token for authenticating with recent search.
+
+# Create Bearer Token for authenticating with recent search.
 bearer_token = BearerTokenAuth(CONSUMER_KEY, CONSUMER_SECRET)
 
-#Make a GET request to the Labs recent search endpoint.
-response = requests.get(url, auth=bearer_token, headers = headers)
+# Make a GET request to the Labs recent search endpoint.
+response = requests.get(url, auth=bearer_token, headers=headers)
 
 if response.status_code is not 200:
-    raise Exception(f"Request reurned an error: %s" % (response.status_code, response.text))
+    raise Exception(f"Request returned an error: %s" %
+                    (response.status_code, response.text))
 
-#Display the returned Tweet JSON.
+# Display the returned Tweet JSON.
 parsed = json.loads(response.text)
 pretty_print = json.dumps(parsed, indent=2, sort_keys=True)
-print (pretty_print)
+print(pretty_print)
